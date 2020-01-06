@@ -22,6 +22,13 @@ class Property (Relatable):
     def getName(self):
         return self.name
 
+    def solve(self):
+        for r in self.relations:
+            if all(p.value != None for p in r.props if p != self):
+                r.solve(self)
+                break
+        #TODO: What if none of them are currently totally solvable?
+
     def toString(self):
         s = ""
         for r in self.relations:

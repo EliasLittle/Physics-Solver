@@ -87,6 +87,7 @@ def evaluateExpressionTree(root):
 
     # leaf node
     if root.left is None and root.right is None:
+        assert root.value != None, ""+root.node.value
         return int(root.value)
 
     # evaluate left tree

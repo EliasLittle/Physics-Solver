@@ -3,11 +3,11 @@ from Operator import *
 from relation import *
 from ExpressionTree import *
 
-M1 = Property("mass",10,"kg")
-A1 = Property("acc",2,"m/s^2")
-F1 = Property("frc",unit="N")
+M1 = Property("mass",value=10,unit="kg")
+A1 = Property("acc",value=2,unit="m/s^2")
+F1 = Property("frc",value=20,unit="N")
 
-r = Relation("{frc}={mass}*{acc}",properties=[M1,A1,F1])
+r = Relation("{mass}*{acc}-{frc}",properties=[M1,A1,F1])
 
 F1.value = r.solve("frc")
 
